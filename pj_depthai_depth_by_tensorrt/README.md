@@ -1,4 +1,6 @@
-# Compare depth
+https://user-images.githubusercontent.com/11009876/154006646-262cb61b-6a58-4559-a08e-c3ba5d9f6ddc.mp4
+
+# Depth by OAK-D-LITE and TensorRT
 - Disparity detected by DepthAI
 - DL Depth Estimation using Mono image: MiDaS v2.1
 - DL Depth Estimation using Stereo images: HITNET (Middlebury)
