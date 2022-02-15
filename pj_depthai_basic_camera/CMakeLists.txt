@@ -16,19 +16,18 @@ add_executable(${ProjectName} main.cpp)
 # target_include_directories(${ProjectName} PUBLIC ./image_processor)
 # target_link_libraries(${ProjectName} ImageProcessor)
 
-# Link OpenCV
-set(OpenCV_DIR "${CMAKE_CURRENT_LIST_DIR}/../third_party/opencv/build/")
+# Link OpenCV and DepthAI
+if(MSVC_VERSION)
+    set(OpenCV_DIR "${CMAKE_CURRENT_LIST_DIR}/../third_party/opencv/build/")
+    set(depthai_DIR "${CMAKE_CURRENT_LIST_DIR}/../third_party/depthai-core/lib/cmake/depthai/")
+endif()
 find_package(OpenCV REQUIRED)
 target_include_directories(${ProjectName} PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(${ProjectName} ${OpenCV_LIBS})
-# set_target_properties(${ProjectName} PROPERTIES VS_DEBUGGER_ENVIRONMENT "PATH=%PATH%;${OpenCV_DIR}/x64/vc15/bin/")
 
-# Link DepthAI
-set(depthai_DIR "${CMAKE_CURRENT_LIST_DIR}/../third_party/depthai-core/lib/cmake/depthai/")
 find_package(depthai REQUIRED)
 target_include_directories(${ProjectName} PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(${ProjectName} depthai::core depthai::opencv)
-# set_target_properties(${ProjectName} PROPERTIES VS_DEBUGGER_ENVIRONMENT "PATH=%PATH%;${depthai_DIR}/../../../bin/")
 set_target_properties(${ProjectName} PROPERTIES VS_DEBUGGER_ENVIRONMENT "PATH=%PATH%;${OpenCV_DIR}/x64/vc15/bin/;${depthai_DIR}/../../../bin/")
 
 # Copy resouce
