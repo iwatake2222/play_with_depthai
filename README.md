@@ -1,3 +1,5 @@
+https://user-images.githubusercontent.com/11009876/154006646-262cb61b-6a58-4559-a08e-c3ba5d9f6ddc.mp4
+
 # Play with DepthAI
 - Sample projects to use DepthAI + OpenCV with OAK-D cameras
 
