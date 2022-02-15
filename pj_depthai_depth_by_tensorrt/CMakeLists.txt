@@ -25,6 +25,11 @@ target_include_directories(${ProjectName} PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(${ProjectName} depthai::core depthai::opencv)
 set_target_properties(${ProjectName} PROPERTIES VS_DEBUGGER_ENVIRONMENT "PATH=%PATH%;${OpenCV_DIR}/x64/vc15/bin/;${depthai_DIR}/../../../bin/")
 
+# Link ImageProcessor module
+add_subdirectory(./image_processor image_processor)
+target_include_directories(${ProjectName} PUBLIC ./image_processor)
+target_link_libraries(${ProjectName} ImageProcessor)
+
 # Copy resouce
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/../resource DESTINATION ${CMAKE_BINARY_DIR}/)
 add_definitions(-DRESOURCE_DIR="${CMAKE_BINARY_DIR}/resource/")

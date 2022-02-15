@@ -11,11 +11,6 @@ include(${CMAKE_CURRENT_LIST_DIR}/../common_helper/cmakes/build_setting.cmake)
 # Create executable file
 add_executable(${ProjectName} main.cpp)
 
-# Link ImageProcessor module
-# add_subdirectory(./image_processor image_processor)
-# target_include_directories(${ProjectName} PUBLIC ./image_processor)
-# target_link_libraries(${ProjectName} ImageProcessor)
-
 # Link OpenCV and DepthAI
 if(MSVC_VERSION)
     set(OpenCV_DIR "${CMAKE_CURRENT_LIST_DIR}/../third_party/opencv/build/")
